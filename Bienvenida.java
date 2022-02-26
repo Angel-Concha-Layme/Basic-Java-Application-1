@@ -18,27 +18,33 @@ public class Bienvenida extends JFrame implements ActionListener{
         add(lbl1);
 
         lbl2 = new JLabel("Sistema de control vacacional");
-        lbl2.setBounds(25,180,300,40);
+        lbl2.setBounds(25,130,300,40);
+        lbl2.setForeground(new Color(255,255,255));
         lbl2.setFont(new Font("Arial",Font.BOLD,20));
         add(lbl2);
 
         lbl3 = new JLabel("Ingrese su nombre");
-        lbl3.setBounds(25,220,300,20);
+        lbl3.setBounds(45,230,250,20);
+        lbl3.setForeground(new Color(255,255,255));
         lbl3.setFont(new Font("Arial",Font.BOLD,15));
         add(lbl3);
 
         txt1 = new JTextField();
-        txt1.setBounds(25,250,300,30);
+        txt1.setBounds(45,255,250,25);
+        txt1.setFont(new Font("Arial",Font.BOLD,15));
+        txt1.setForeground(new Color(255,0,0));
         add(txt1);
 
-        btn1 = new JButton("Ingresar");
-        btn1.setBounds(25,300,300,30);
+        btn1 = new JButton("Ingresar"); 
+        btn1.setBounds(125,300,100,30);
+        btn1.setForeground(new Color(255,0,0));
         btn1.addActionListener(this);
         add(btn1);
 
         lbl4 = new JLabel("@2017 The Coca Cola Company");
-        lbl4.setBounds(25,350,300,20);
-        lbl4.setFont(new Font("Arial",Font.BOLD,15));
+        lbl4.setBounds(85,375,300,30);
+        lbl4.setForeground(new Color(255,255,255));
+        lbl4.setFont(new Font("Andale Mono",1,12));
         add(lbl4);
 
     }
@@ -47,7 +53,7 @@ public class Bienvenida extends JFrame implements ActionListener{
     }
     public static void main(String args[]){
         Bienvenida ventana = new Bienvenida();
-        ventana.setBounds(0,0,350,400);
+        ventana.setBounds(0,0,350,450);
         ventana.setVisible(true);
         ventana.setResizable(false);
         ventana.setLocationRelativeTo(null);
