@@ -6,6 +6,7 @@ public class Bienvenida extends JFrame implements ActionListener{
     private JLabel lbl1, lbl2, lbl3, lbl4;
     private JTextField txt1;
     private JButton btn1;
+    public static String nombre="";	
 
     public Bienvenida(){
         setLayout(null);
@@ -50,6 +51,20 @@ public class Bienvenida extends JFrame implements ActionListener{
     }
     
     public void actionPerformed(ActionEvent e){    
+        if (e.getSource() == btn1){
+            nombre = txt1.getText().trim(); 
+            if (nombre.equals("")){
+                JOptionPane.showMessageDialog(null,"Ingrese su nombre");
+            }else{
+                Licencia ventana = new Licencia();
+                ventana.setBounds(0,0,610,380);
+                ventana.setVisible(true);
+                ventana.setResizable(false);
+                ventana.setLocationRelativeTo(null);
+                ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.setVisible(false);
+            }  
+        }
     }
     public static void main(String args[]){
         Bienvenida ventana = new Bienvenida();
