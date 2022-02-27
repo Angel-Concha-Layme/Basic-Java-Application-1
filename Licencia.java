@@ -4,19 +4,20 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
 
-
-
 public class Licencia extends JFrame implements ChangeListener, ActionListener{
     private JLabel lbl1,lbl2;
     private JCheckBox chb1;
     private JButton btn1,btn2;
     private JTextArea txtarea;
     private JScrollPane scroll;
+    String nombre="";
 
     public Licencia(){
         setLayout(null);
         setTitle("Licencia de uso");
         setIconImage(new ImageIcon(getClass().getResource("Images/icon.png")).getImage());
+
+        nombre = Bienvenida.nombre;
 
         lbl1= new JLabel("TERMINOS Y CONDICIONES");
         lbl1.setBounds(215,5,200,30); 
@@ -46,7 +47,7 @@ public class Licencia extends JFrame implements ChangeListener, ActionListener{
         scroll.setBounds(10,40,575,200);
         add(scroll);
 
-        chb1 = new JCheckBox("Acepto los terminos y condiciones");
+        chb1 = new JCheckBox("Yo " + nombre + " acepto los terminos y condiciones");
         chb1.setBounds(10,250,300,30);
         chb1.addChangeListener(this);
         add(chb1);
@@ -75,7 +76,22 @@ public class Licencia extends JFrame implements ChangeListener, ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
-
+        if (e.getSource() == btn1){
+            Principal ventanaPrincipal = new Principal();
+            ventanaPrincipal.setBounds(0,0,640,535);
+            ventanaPrincipal.setVisible(true);
+            ventanaPrincipal.setResizable(false);
+            ventanaPrincipal.setLocationRelativeTo(null);
+            ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setVisible(false);
+        }else if (e.getSource() == btn2){
+            Bienvenida ventana = new Bienvenida();
+            ventana.setBounds(0,0,350,450);
+            ventana.setVisible(true);
+            ventana.setResizable(false);
+            ventana.setLocationRelativeTo(null);
+            ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }    
     }
 
     public static void main(String args[]){
