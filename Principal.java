@@ -13,6 +13,7 @@ public class Principal extends JFrame implements ActionListener{
     private JComboBox cmbDepartamento,cmbAntiguedad;
     private JScrollPane scrollpane1; 
     private JTextArea txtArea1;
+    String nombre="";
 
     public Principal() {
       setLayout(null);
@@ -23,6 +24,8 @@ public class Principal extends JFrame implements ActionListener{
       mb = new JMenuBar();
       mb.setBackground(new Color(255, 0, 0));
       setJMenuBar(mb);
+    
+      nombre = Bienvenida.nombre;
 
 
       menuOpciones = new JMenu("Opciones");
@@ -95,7 +98,7 @@ public class Principal extends JFrame implements ActionListener{
       lblLogo.setBounds(5,5,250,100);
       add(lblLogo);
 
-      lblBienvenido = new JLabel("Bienvenido");  
+      lblBienvenido = new JLabel("Bienvenido "+ nombre);  
       lblBienvenido.setBounds(280,30,300,50);
       lblBienvenido.setFont(new Font("Andale Mono", 1, 32));
       lblBienvenido.setForeground(new Color(255, 255, 255));
@@ -189,11 +192,11 @@ public class Principal extends JFrame implements ActionListener{
       txtArea1 = new JTextArea();
       txtArea1.setEditable(false);
       txtArea1.setBackground(new Color(224, 224, 224));
-      txtArea1.setFont(new Font("Andale Mono", 1, 11));
-      txtArea1.setForeground(new Color(255, 0, 0));
+      txtArea1.setFont(new Font("Andale Mono", 1, 12));
+      txtArea1.setForeground(new Color(0, 0, 0));
       txtArea1.setText("\n   Aqui aparece el resultado del calculo de las vacaciones.");
       scrollpane1 = new JScrollPane(txtArea1);
-      scrollpane1.setBounds(220,333,385,90);
+      scrollpane1.setBounds(220,330,385,90);
       add(scrollpane1); 
 
       lblFooter = new JLabel("@2017 The Coca-Cola Company | Todos los derechos reservados");
@@ -204,26 +207,95 @@ public class Principal extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
-        if (e.getSource() == itemCalculo) {
-   	         
+        if (e.getSource() == itemCalculo){
+            String nombreTrabajador = txtNombreTrabajador.getText();
+            String aPaternoTrabajador = txtAPaternoTrabajador.getText();
+            String aMaternoTrabajador = txtAMaternoTrabajador.getText();
+            String departamento = cmbDepartamento.getSelectedItem().toString();
+            String antiguedad = cmbAntiguedad.getSelectedItem().toString();
+
+            if(nombreTrabajador.equals("")|| aPaternoTrabajador.equals("") || aMaternoTrabajador.equals("") || departamento.equals("") || antiguedad.equals("")){
+                JOptionPane.showMessageDialog(null, "Faltan datos por llenar.");
+
+            }else{
+                if(departamento.equals("Atencion al Cliente")){
+                    if(antiguedad.equals("1 año de servicio")){
+                        txtArea1.setText("\n   El trabajador "+nombreTrabajador+" "+aPaternoTrabajador+" "+aMaternoTrabajador+"\n   tiene una antiguedad de "+antiguedad+"\n   y pertenece al departamento de "+
+                        departamento+"\n   por lo tanto tiene unas vacaciones de: 6 dias.");
+                    }
+                    if(antiguedad.equals("2 a 6 años de servicio")){
+                        txtArea1.setText("\n   El trabajador "+nombreTrabajador+" "+aPaternoTrabajador+" "+aMaternoTrabajador+"\n   tiene una antiguedad de "+antiguedad+"\n   y pertenece al departamento de "+
+                        departamento+"\n   por lo tanto tiene unas vacaciones de: 14 dias.");
+                    }
+                    if(antiguedad.equals("7 años o mas de servicio")){
+                        txtArea1.setText("\n   El trabajador "+nombreTrabajador+" "+aPaternoTrabajador+" "+aMaternoTrabajador+"\n   tiene una antiguedad de "+antiguedad+"\n   y pertenece al departamento de "+
+                        departamento+"\n   por lo tanto tiene unas vacaciones de: 20 dias.");
+                    }   
+                }
+                if(departamento.equals("Departamento de Logistica")){
+                    if(antiguedad.equals("1 año de servicio")){
+                        txtArea1.setText("\n   El trabajador "+nombreTrabajador+" "+aPaternoTrabajador+" "+aMaternoTrabajador+"\n   tiene una antiguedad de "+antiguedad+"\n   y pertenece al departamento de "+
+                        departamento+"\n   por lo tanto tiene unas vacaciones de: 7 dias.");
+                    }
+                    if(antiguedad.equals("2 a 6 años de servicio")){
+                        txtArea1.setText("\n   El trabajador "+nombreTrabajador+" "+aPaternoTrabajador+" "+aMaternoTrabajador+"\n   tiene una antiguedad de "+antiguedad+"\n   y pertenece al departamento de "+
+                        departamento+"\n   por lo tanto tiene unas vacaciones de: 15 dias.");
+                    }
+                    if(antiguedad.equals("7 años o mas de servicio")){
+                        txtArea1.setText("\n   El trabajador "+nombreTrabajador+" "+aPaternoTrabajador+" "+aMaternoTrabajador+"\n   tiene una antiguedad de "+antiguedad+"\n   y pertenece al departamento de "+
+                        departamento+"\n   por lo tanto tiene unas vacaciones de: 22 dias.");
+                    }   
+                }
+                if(departamento.equals("Departamento de Gerencia ")){
+                    if(antiguedad.equals("1 año de servicio")){
+                        txtArea1.setText("\n   El trabajador "+nombreTrabajador+" "+aPaternoTrabajador+" "+aMaternoTrabajador+"\n   tiene una antiguedad de "+antiguedad+"\n   y pertenece al departamento de "+
+                        departamento+"\n   por lo tanto tiene unas vacaciones de: 10 dias.");
+                    }
+                    if(antiguedad.equals("2 a 6 años de servicio")){
+                        txtArea1.setText("\n   El trabajador "+nombreTrabajador+" "+aPaternoTrabajador+" "+aMaternoTrabajador+"\n   tiene una antiguedad de "+antiguedad+"\n   y pertenece al departamento de "+
+                        departamento+"\n   por lo tanto tiene unas vacaciones de: 20 dias.");
+                    }
+                    if(antiguedad.equals("7 años o mas de servicio")){
+                        txtArea1.setText("\n   El trabajador "+nombreTrabajador+" "+aPaternoTrabajador+" "+aMaternoTrabajador+"\n   tiene una antiguedad de "+antiguedad+"\n   y pertenece al departamento de "+
+                        departamento+"\n   por lo tanto tiene unas vacaciones de: 30 dias.");
+                    }   
+                }
+            }
         }
         if (e.getSource() == itemRojo){
-
+            Container contentPane = getContentPane();
+            contentPane.setBackground(new Color(255, 0, 0));
+            mb.setBackground(new Color(255, 0, 0));
         }
         if (e.getSource() == itemNegro){
-
+            Container contentPane = getContentPane();
+            contentPane.setBackground(new Color(0, 0, 0));
+            mb.setBackground(new Color(0, 0, 0));
         }
 	    if (e.getSource() == itemMorado){
-
+            Container contentPane = getContentPane();
+            contentPane.setBackground(new Color(128, 0, 128));
+            mb.setBackground(new Color(128, 0, 128));
         }
         if (e.getSource() == itemNuevo){	
-	    
+            txtNombreTrabajador.setText("");
+            txtAMaternoTrabajador.setText("");
+            txtAPaternoTrabajador.setText("");
+            cmbAntiguedad.setSelectedIndex(0);
+            cmbDepartamento.setSelectedIndex(0);
+            txtArea1.setText("\n   Aqui aparece el resultado del calculo de las vacaciones.");
         }
 	    if (e.getSource() == itemSalir){
-
+            Bienvenida ventana = new Bienvenida();
+            ventana.setBounds(0,0,350,450);
+            ventana.setVisible(true);
+            ventana.setResizable(false);
+            ventana.setLocationRelativeTo(null);
+            ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setVisible(false);
 	    }
         if (e.getSource() == itemElCreador){
-
+            JOptionPane.showMessageDialog(null, "Elaborado por Angel zzzz");
         }
     }
 
