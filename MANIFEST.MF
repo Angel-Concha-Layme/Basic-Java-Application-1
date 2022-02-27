@@ -1,0 +1,4 @@
+Manifest-Version: 1.0 
+Created-By: Angel
+Main-Class Bienvenida
+X-COMMENT: primer progrma en java uwu
