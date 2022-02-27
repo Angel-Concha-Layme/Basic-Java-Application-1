@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
+
 public class Licencia extends JFrame implements ChangeListener, ActionListener{
     private JLabel lbl1,lbl2;
     private JCheckBox chb1;
