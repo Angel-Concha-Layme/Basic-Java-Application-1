@@ -233,5 +233,6 @@ public class Principal extends JFrame implements ActionListener{
         ventanaPrincipal.setVisible(true);
         ventanaPrincipal.setResizable(false);
         ventanaPrincipal.setLocationRelativeTo(null);
+        ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     } 
 }
